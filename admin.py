@@ -1,3 +1,5 @@
-from django.contrib import admin
+from django.contrib.admin import ModelAdmin, site
 
-# Register your models here.
+from .models import ChristmasGroup
+
+site.register(ChristmasGroup)
