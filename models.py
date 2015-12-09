@@ -7,6 +7,9 @@ class ChristmasGroup(Model):
     rotation = CommaSeparatedIntegerField(max_length=256, default='', blank=True)  # 89 guys max…
     closed = BooleanField(default=False)
 
+    def __str__(self):
+        return 'Secret Santa for %s (%s)' % (self.group, 'closed' if self.closed else 'open')
+
     def save(self, *args, **kwargs):
         guys = self.group.user_set.order_by('?').values_list('pk', flat=True)
         self.rotation = ','.join(str(i) for i in guys)
