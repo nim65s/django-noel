@@ -1,7 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from . import views
 
-urlpatterns = patterns('',
-    url(r'^$', views.secret_santa, name='secret_santa'),
-)
+app_name = 'secret_santa'
+urlpatterns = [
+        url(r'^$', views.secret_santa, name='secret_santa'),
+        ]
